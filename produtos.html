@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Produtos</title>
+    <!-- Link do Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 30px;
+        }
+
+        .product-section {
+            margin-bottom: 40px;
+        }
+
+        .slider-container {
+            margin: 10px 0;
+        }
+
+        .slider-label {
+            font-size: 1rem;
+        }
+
+        .checkbox-label {
+            font-size: 1rem;
+        }
+
+        .header {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 10px 20px;
+        }
+
+        .header a {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .header a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body class="bg-dark text-light">
+
+    <!-- Header com o link para a página "Meus Produtos" no canto superior direito -->
+    <header class="header">
+        <a href="index.html">Voltar para a Página Inicial</a>
+    </header>
+
+    <div class="container mt-5">
+
+        <!-- Título da página -->
+        <h1 class="text-center">Controle dos Meus Produtos</h1>
+
+        <!-- Seção Lampada -->
+        <div class="product-section">
+            <h2 class="section-title">Lampada</h2>
+            <div class="slider-container">
+                <label class="slider-label" for="lampada-slider">Intensidade do Brilho:</label>
+                <input type="range" class="form-range" id="lampada-slider" min="0" max="100" step="1" value="50">
+                <div class="text-center">
+                    <span id="lampada-value">50</span>% de brilho
+                </div>
+            </div>
+        </div>
+
+        <!-- Seção Porta -->
+        <div class="product-section">
+            <h2 class="section-title">Porta</h2>
+            <div class="slider-container">
+                <label class="slider-label" for="porta-slider">Grau de Abertura:</label>
+                <input type="range" class="form-range" id="porta-slider" min="0" max="180" step="1" value="90">
+                <div class="text-center">
+                    <span id="porta-value">90</span>° de abertura
+                </div>
+            </div>
+        </div>
+
+        <!-- Seção Fechadura -->
+        <div class="product-section">
+            <h2 class="section-title">Fechadura</h2>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="fechadura-check">
+                <label class="form-check-label checkbox-label" for="fechadura-check">
+                    <span id="fechadura-status">Destrancada</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Seção Banheira -->
+        <div class="product-section">
+            <h2 class="section-title">Banheira</h2>
+            <div class="slider-container">
+                <label class="slider-label" for="banheira-temp-slider">Temperatura (°C):</label>
+                <input type="range" class="form-range" id="banheira-temp-slider" min="0" max="40" step="1" value="30">
+                <div class="text-center">
+                    <span id="banheira-temp-value">30</span>°C
+                </div>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="banheira-encher-check">
+                <label class="form-check-label checkbox-label" for="banheira-encher-check">
+                    Encher
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="banheira-esvaziar-check">
+                <label class="form-check-label checkbox-label" for="banheira-esvaziar-check">
+                    Esvaziar
+                </label>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Scripts do Bootstrap e JS para interatividade -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        // Atualizando valor dos sliders
+        const lampadaSlider = document.getElementById('lampada-slider');
+        const portaSlider = document.getElementById('porta-slider');
+        const banheiraTempSlider = document.getElementById('banheira-temp-slider');
+
+        const lampadaValue = document.getElementById('lampada-value');
+        const portaValue = document.getElementById('porta-value');
+        const banheiraTempValue = document.getElementById('banheira-temp-value');
+
+        // Atualizando os valores ao mudar o slider
+        lampadaSlider.addEventListener('input', function() {
+            lampadaValue.textContent = lampadaSlider.value;
+        });
+
+        portaSlider.addEventListener('input', function() {
+            portaValue.textContent = portaSlider.value;
+        });
+
+        banheiraTempSlider.addEventListener('input', function() {
+            banheiraTempValue.textContent = banheiraTempSlider.value;
+        });
+
+        // Fechadura: Quando a checkbox for alterada
+        const fechaduraCheck = document.getElementById('fechadura-check');
+        const fechaduraStatus = document.getElementById('fechadura-status');
+
+        fechaduraCheck.addEventListener('change', function() {
+            if (fechaduraCheck.checked) {
+                fechaduraStatus.textContent = 'Trancada';
+            } else {
+                fechaduraStatus.textContent = 'Destrancada';
+            }
+        });
+
+        // Banheira: Quando as checkboxes forem alteradas
+        const banheiraEncherCheck = document.getElementById('banheira-encher-check');
+        const banheiraEsvaziarCheck = document.getElementById('banheira-esvaziar-check');
+
+        banheiraEncherCheck.addEventListener('change', function() {
+            if (banheiraEncherCheck.checked) {
+                console.log("Banheira está enchendo...");
+            } else {
+                console.log("Banheira não está enchendo.");
+            }
+        });
+
+        banheiraEsvaziarCheck.addEventListener('change', function() {
+            if (banheiraEsvaziarCheck.checked) {
+                console.log("Banheira está esvaziando...");
+            } else {
+                console.log("Banheira não está esvaziando.");
+            }
+        });
+    </script>
+
+</body>
+</html>
