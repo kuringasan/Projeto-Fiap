@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meus Produtos</title>
-    <!-- Link do Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .section-title {
@@ -50,17 +49,14 @@
 </head>
 <body class="bg-dark text-light">
 
-    <!-- Header com o link para a página "Meus Produtos" no canto superior direito -->
     <header class="header">
         <a href="index.html">Voltar para a Página Inicial</a>
     </header>
 
     <div class="container mt-5">
 
-        <!-- Título da página -->
         <h1 class="text-center">Controle dos Meus Produtos</h1>
 
-        <!-- Seção Lampada -->
         <div class="product-section">
             <h2 class="section-title">Lampada</h2>
             <div class="slider-container">
@@ -71,8 +67,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Seção Porta -->
         <div class="product-section">
             <h2 class="section-title">Porta</h2>
             <div class="slider-container">
@@ -84,7 +78,7 @@
             </div>
         </div>
 
-        <!-- Seção Fechadura -->
+     
         <div class="product-section">
             <h2 class="section-title">Fechadura</h2>
             <div class="form-check">
@@ -95,7 +89,6 @@
             </div>
         </div>
 
-        <!-- Seção Banheira -->
         <div class="product-section">
             <h2 class="section-title">Banheira</h2>
             <div class="slider-container">
@@ -121,12 +114,12 @@
 
     </div>
 
-    <!-- Scripts do Bootstrap e JS para interatividade -->
+    
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 
     <script>
-        // Atualizando valor dos sliders
+        
         const lampadaSlider = document.getElementById('lampada-slider');
         const portaSlider = document.getElementById('porta-slider');
         const banheiraTempSlider = document.getElementById('banheira-temp-slider');
@@ -135,7 +128,7 @@
         const portaValue = document.getElementById('porta-value');
         const banheiraTempValue = document.getElementById('banheira-temp-value');
 
-        // Atualizando os valores ao mudar o slider
+        
         lampadaSlider.addEventListener('input', function() {
             lampadaValue.textContent = lampadaSlider.value;
         });
@@ -148,7 +141,6 @@
             banheiraTempValue.textContent = banheiraTempSlider.value;
         });
 
-        // Fechadura: Quando a checkbox for alterada
         const fechaduraCheck = document.getElementById('fechadura-check');
         const fechaduraStatus = document.getElementById('fechadura-status');
 
@@ -160,7 +152,7 @@
             }
         });
 
-        // Banheira: Quando as checkboxes forem alteradas
+        
         const banheiraEncherCheck = document.getElementById('banheira-encher-check');
         const banheiraEsvaziarCheck = document.getElementById('banheira-esvaziar-check');
 
